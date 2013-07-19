@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html lang="en" ng-app="app">
+<head>
+  <meta charset="UTF-8">
+  <title>Sennheiser</title>
+  <script src="./js/lib/angular.js" type="text/javascript"></script>
+  <script src="./js/search_ctrl.js" type="text/javascript"></script>
+</head>
+<body>
+  <div ng-controller="SearchCtrl">
+    <form name="search" ng-submit="performSearch(searchTerm)">
+      <input type="search" ng-model="searchTerm" placeholder="Product Search" required/>
+      <button type="submit">Go</button>
+    </form>
+
+    <div class="did-you-mean">
+      Did you mean? <a href ng-click="didYouMean(didYouMeanTerm)"><em>{{didYouMeanTerm}}</em></a>
+    </div>
+    <ol class='products'>
+      <li ng-repeat="item in products">
+        {{item.name}}
+      </li>
+    </ol>
+  </div>
+</body>
+</html>
